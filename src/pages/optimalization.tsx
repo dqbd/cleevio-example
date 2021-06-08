@@ -1,42 +1,39 @@
-import styled from "@emotion/styled";
-import { useState, useEffect } from "react";
+import styled from "@emotion/styled"
+import { useScroll } from "utils/hooks"
 
 const Header = styled.div<{ isSticky?: boolean }>`
   position: sticky;
   top: 0;
   background: white;
 
+  padding: 30px 0;
+
   ${({ isSticky }) => ({
-    borderBottom: isSticky ? "1px solid black" : "none"
+    borderBottom: isSticky ? "10px solid black" : "none",
   })}
-`;
+`
 
-const useScroll = () => {
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    function listener() {
-      setScrollY(document.body.getBoundingClientRect().top);
-    }
-
-    window.addEventListener("scroll", listener);
-    return () => void window.removeEventListener("scroll", listener);
-  });
-
-  return scrollY;
-};
+const Item = styled.div<{ index: number }>`
+  padding: 10px;
+`
 
 export default function Page() {
-  const scrollY = useScroll();
+  const scrollY = useScroll()
+
   return (
     <div>
       <Header isSticky={scrollY > 0}>Hello world</Header>
-
-      {Array(100)
+      {Array(1000)
         .fill(0)
         .map((_, i) => (
-          <div key={i}>Item {i}</div>
+          <Item
+            key={i}
+            index={i}
+            css={{ background: `hsl(${i % 360}, 100%, 50%)` }}
+          >
+            Item {i}
+          </Item>
         ))}
     </div>
-  );
+  )
 }
