@@ -7,10 +7,10 @@ interface Model {
   }[]
 }
 
-type PartialModel = unknown
+type UserModel = unknown
 
 export default function Page() {
-  const resource: PartialModel = {
+  const resource: UserModel = {
     id: "Hello",
     date: undefined,
     entries: [],
