@@ -1,20 +1,20 @@
 interface Model {
-  id: string;
-  date: string;
+  id: string
+  date: string
   entries: {
-    id: string;
-    content: string;
-  }[];
+    id: string
+    content: string
+  }[]
 }
 
-type PartialModel = unknown;
+type PartialModel = unknown
 
 export default function Page() {
   const resource: PartialModel = {
     id: "Hello",
     date: undefined,
-    entries: []
-  };
+    entries: [],
+  }
 
   return (
     <div>
@@ -22,5 +22,5 @@ export default function Page() {
         <div key={entry.id}>{entry.content}</div>
       ))}
     </div>
-  );
+  )
 }

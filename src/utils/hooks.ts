@@ -9,7 +9,7 @@ export function useScroll() {
     }
 
     window.addEventListener("scroll", listener)
-    return () => void window.removeEventListener("scroll", listener)
+    return () => window.removeEventListener("scroll", listener)
   })
 
   return -scrollY

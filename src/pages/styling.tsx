@@ -1,13 +1,13 @@
-import { ReactNode } from "react";
+import { ReactNode } from "react"
 
 interface Props {
-  children?: ReactNode;
+  children?: ReactNode
 }
 
 function ExampleComponent(props: Props) {
   return (
     <div css={{ padding: 16, border: "1px solid black" }}>{props.children}</div>
-  );
+  )
 }
 
 export default function Page() {
@@ -20,5 +20,5 @@ export default function Page() {
         I should be green!
       </ExampleComponent>
     </div>
-  );
+  )
 }
